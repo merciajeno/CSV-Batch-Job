@@ -25,6 +25,7 @@ public class JobService {
 
 	private final JobOperator jobOperator;
 	private final Job myJob;
+	private final Job secondJob;
 	private final JobExplorer jobExplorer;
 	
 	public void runJob() throws JobExecutionAlreadyRunningException, JobRestartException, JobInstanceAlreadyCompleteException, InvalidJobParametersException
@@ -37,9 +38,14 @@ public class JobService {
 		jobOperator.run(myJob, jobParameters);
 	}
 	
-	public void runCsvJob()
+	public void runCsvJob() throws JobExecutionAlreadyRunningException, JobRestartException, JobInstanceAlreadyCompleteException, InvalidJobParametersException
 	{
+		JobParameters jobParameters = new JobParametersBuilder().
+				addString("mercia", "murderer")
+				.addLong("timeStamp",System.currentTimeMillis())
+				.toJobParameters();
 		
+		jobOperator.run(secondJob, jobParameters);
 	}
 	
 	public void restartJob() throws NoSuchJobException, JobRestartException, NoSuchJobInstanceException

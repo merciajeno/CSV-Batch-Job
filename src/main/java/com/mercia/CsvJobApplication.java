@@ -23,6 +23,7 @@ public class CsvJobApplication implements CommandLineRunner{
 		// TODO Auto-generated method stub
 		//jobService.restartJob();
 		jobService.runJob();
+		//jobService.runCsvJob();
 	}
 
 }

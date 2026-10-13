@@ -64,6 +64,14 @@ public class BatchConfig {
 	}
 	
 	@Bean
+	Job secondJob(Step myTaskletStep,JobRepository jobRepository)
+	{
+		return new JobBuilder("csvJob",jobRepository)
+				.start(myTaskletStep)
+				.build();
+	}
+	
+	@Bean
     Step myTaskletStep(JobRepository jobRepository, 
 	                          PlatformTransactionManager transactionManager, 
 	                          Tasklet myTasklet) {
