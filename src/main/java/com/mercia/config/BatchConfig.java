@@ -34,7 +34,7 @@ public class BatchConfig {
         return factory.getObject();
     }
 
-    @Bean
+    @Bean //to include metadata db from the jar file script
     public DataSourceInitializer dataSourceInitializer(DataSource dataSource) {
         ResourceDatabasePopulator databasePopulator = new ResourceDatabasePopulator();
         //from the JAR file schema script
@@ -76,6 +76,7 @@ public class BatchConfig {
 	Tasklet myTasklet() {
 	    return (contribution, chunkContext) -> {
 	        // Write your custom logic here
+	    	//throw new RuntimeException("Someone is dead!!!");
 	        System.out.println("Executing task without reader, writer, or processor!");
 	        return RepeatStatus.FINISHED;
 	    };
