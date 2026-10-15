@@ -4,20 +4,29 @@ import javax.sql.DataSource;
 
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.EnableJdbcJobRepository;
+import org.springframework.batch.core.configuration.annotation.JobScope;
 import org.springframework.batch.core.job.Job;
 import org.springframework.batch.core.job.builder.JobBuilder;
 import org.springframework.batch.core.launch.support.JobOperatorFactoryBean;
 import org.springframework.batch.core.repository.JobRepository;
 import org.springframework.batch.core.step.Step;
 import org.springframework.batch.core.step.builder.StepBuilder;
-import org.springframework.batch.core.step.tasklet.Tasklet;
-import org.springframework.batch.infrastructure.repeat.RepeatStatus;
+import org.springframework.batch.infrastructure.item.ItemWriter;
+import org.springframework.batch.infrastructure.item.file.FlatFileItemReader;
+import org.springframework.batch.infrastructure.item.file.builder.FlatFileItemReaderBuilder;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.datasource.init.DataSourceInitializer;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.transaction.PlatformTransactionManager;
+
+import com.mercia.exception.CustomSkipPolicy;
+import com.mercia.listener.CustomSkipListener;
+import com.mercia.mapper.TransactionMapper;
+import com.mercia.model.Transaction;
+import com.mercia.step.DuplicateProcessor;
 
 @Configuration
 @EnableBatchProcessing
@@ -46,37 +55,59 @@ public class BatchConfig {
 	}
 	
 	@Bean
-	Job myJob(Step myTaskletStep,JobRepository jobRepository)
+	Job myJob(Step someStep,JobRepository jobRepository)
 	{
 		return new JobBuilder("myJob",jobRepository)
-				.start(myTaskletStep)
+				.start(someStep)
 				.build();
 	}
 	
 	@Bean
-	Job secondJob(Step myTaskletStep,JobRepository jobRepository)
+	Job secondJob(Step someStep,JobRepository jobRepository)
 	{
 		return new JobBuilder("csvJob",jobRepository)
-				.start(myTaskletStep)
+				.start(someStep)
 				.build();
 	}
 	
 	@Bean
-    Step myTaskletStep(JobRepository jobRepository, 
-	                          PlatformTransactionManager transactionManager, 
-	                          Tasklet myTasklet) {
-	    return new StepBuilder("myTaskletStep", jobRepository)
-	            .tasklet(myTasklet, transactionManager)
-	            .build();
+	Step someStep(PlatformTransactionManager transactionManager,JobRepository repository,FlatFileItemReader<Transaction> reader,
+			ItemWriter<Transaction> writer,CustomSkipPolicy skipPolicy,CustomSkipListener skipListener,
+			DuplicateProcessor processor)
+	{
+		return new StepBuilder("jobStep",repository)
+				.<Transaction,Transaction>chunk(1000).transactionManager(transactionManager)
+				.reader(reader)
+				.processor(processor)
+				.writer(writer)
+				.faultTolerant()
+				.skipPolicy(skipPolicy)
+				.listener(skipListener)
+				.build();
+	}
+	
+	@Bean
+	@JobScope
+	FlatFileItemReader<Transaction> reader(TransactionMapper mapper, 
+			@Value("#{jobParameters['input.file.path']}") String filePath) {
+	
+		return new FlatFileItemReaderBuilder<Transaction>()
+				.name("sharedCsvReader")
+				.resource(new ClassPathResource(filePath))
+				.linesToSkip(1) // header																								
+				.delimited()
+				.names("transaction_id","account_number","transaction_date","amount","currency","transaction_type","description")
+				.fieldSetMapper(mapper)
+				.build();
+	}
+	
+	@Bean
+	ItemWriter<Transaction> writer()
+	{
+		return items->{
+			for(Transaction t:items)
+				System.out.println(t);
+		};
 	}
 
-	@Bean
-	Tasklet myTasklet() {
-	    return (contribution, chunkContext) -> {
-	        // Write your custom logic here
-	    	//throw new RuntimeException("Someone is dead!!!");
-	        System.out.println("Executing task without reader, writer, or processor!");
-	        return RepeatStatus.FINISHED;
-	    };
-	}
 }

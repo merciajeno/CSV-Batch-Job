@@ -32,7 +32,7 @@ public class JobService {
 	public void runJob() throws JobExecutionAlreadyRunningException, JobRestartException, JobInstanceAlreadyCompleteException, InvalidJobParametersException
 	{
 		JobParameters jobParameters = new JobParametersBuilder().
-				addString("csv", "myCsv")
+				addString("input.file.path", "/input_transactions.csv")
 				.addLong("timeStamp",System.currentTimeMillis())
 				.toJobParameters();
 		
@@ -42,7 +42,7 @@ public class JobService {
 	public void runCsvJob() throws JobExecutionAlreadyRunningException, JobRestartException, JobInstanceAlreadyCompleteException, InvalidJobParametersException
 	{
 		JobParameters jobParameters = new JobParametersBuilder().
-				addString("mercia", "murderer")
+				addString("input.file.path", "/latest_transactions.csv")
 				.addLong("timeStamp",System.currentTimeMillis())
 				.toJobParameters();
 		
@@ -54,18 +54,15 @@ public class JobService {
 		JobInstance lastInstance = jobExplorer.getLastJobInstance("myJob");
 
 		if (lastInstance != null) {
-		    // 2. Get execution IDs for this instance (ordered reverse chronologically)
 		    List<Long> executionIds = jobOperator.getExecutions(lastInstance.getInstanceId());
 		    
 		    if (!executionIds.isEmpty()) {
 		        Long lastExecutionId = executionIds.get(0);
-		        // Load the JobExecution object if needed via JobExplorer or handle by ID
 		        JobExecution lastExecution = jobExplorer.getJobExecution(lastExecutionId);
-		       // System.out.println(lastExecution.toString());
 		        jobOperator.restart(lastExecution);
 		    }
 		}
-			
 		
 	}
+	
 }
