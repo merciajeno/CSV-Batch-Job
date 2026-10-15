@@ -21,6 +21,7 @@ import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
+@SuppressWarnings(value = { "removal" })
 public class JobService {
 
 	private final JobOperator jobOperator;
