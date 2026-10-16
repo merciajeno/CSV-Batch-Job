@@ -26,6 +26,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import com.mercia.exception.CustomSkipPolicy;
 import com.mercia.listener.CustomSkipListener;
 import com.mercia.mapper.TransactionMapper;
+import com.mercia.model.Summary;
 import com.mercia.model.Transaction;
 import com.mercia.repository.TransactionRepository;
 import com.mercia.step.DuplicateProcessor;
@@ -74,7 +75,7 @@ public class BatchConfig {
 			FlatFileItemReader<Transaction> reader, ItemWriter<Transaction> writer, CustomSkipPolicy skipPolicy,
 			CustomSkipListener skipListener, DuplicateProcessor processor, AsyncTaskExecutor taskExecutor) {
 		return new StepBuilder("jobStep", repository)
-				.<Transaction, Transaction>chunk(1000)
+				.<Transaction, Transaction>chunk(100)
 				.transactionManager(transactionManager)
 				.reader(reader)
 				.processor(processor)
@@ -91,7 +92,7 @@ public class BatchConfig {
 			FlatFileItemReader<Transaction> reader, ItemWriter<Transaction> writer, CustomSkipPolicy skipPolicy,
 			CustomSkipListener skipListener, ReconciliationProcessor processor, AsyncTaskExecutor taskExecutor) {
 		return new StepBuilder("jobStep", repository)
-				.<Transaction, Transaction>chunk(1000)
+				.<Transaction, Transaction>chunk(100)
 				.transactionManager(transactionManager)
 				.reader(reader)
 				.processor(processor)
