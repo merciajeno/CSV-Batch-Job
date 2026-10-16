@@ -17,9 +17,7 @@ public class Summary {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long summaryId;
-	
-	private Long jobInstanceId;
-	private Long jobExecutionId;
+
 	private Long totalRecords;
 	private Long totalMatchedRecords;
 	private Long totalMisMatchedRecords;

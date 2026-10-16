@@ -29,14 +29,12 @@ import com.mercia.mapper.TransactionMapper;
 import com.mercia.model.Transaction;
 import com.mercia.repository.TransactionRepository;
 import com.mercia.step.DuplicateProcessor;
+import com.mercia.step.FileValidationService;
 import com.mercia.step.ReconciliationProcessor;
-
-import lombok.extern.slf4j.Slf4j;
 
 @Configuration
 @EnableBatchProcessing
 @EnableJdbcJobRepository
-@Slf4j
 public class BatchConfig {
 
 	@Bean // to include metadata db from the jar file script
@@ -74,7 +72,7 @@ public class BatchConfig {
 			FlatFileItemReader<Transaction> reader, ItemWriter<Transaction> writer, CustomSkipPolicy skipPolicy,
 			CustomSkipListener skipListener, DuplicateProcessor processor, AsyncTaskExecutor taskExecutor) {
 		return new StepBuilder("jobStep", repository)
-				.<Transaction, Transaction>chunk(100)
+				.<Transaction, Transaction>chunk(1000)
 				.transactionManager(transactionManager)
 				.reader(reader)
 				.processor(processor)
@@ -91,7 +89,7 @@ public class BatchConfig {
 			FlatFileItemReader<Transaction> reader, ItemWriter<Transaction> writer, CustomSkipPolicy skipPolicy,
 			CustomSkipListener skipListener, ReconciliationProcessor processor, AsyncTaskExecutor taskExecutor) {
 		return new StepBuilder("jobStep", repository)
-				.<Transaction, Transaction>chunk(100)
+				.<Transaction, Transaction>chunk(1000)
 				.transactionManager(transactionManager)
 				.reader(reader)
 				.processor(processor)
@@ -106,11 +104,14 @@ public class BatchConfig {
 	@Bean
 	@JobScope
 	FlatFileItemReader<Transaction> reader(TransactionMapper mapper,
-			@Value("#{jobParameters['input.file.path']}") String filePath) {
+			@Value("#{jobParameters['input.file.path']}") String filePath,FileValidationService validatorService) {
 
+		ClassPathResource fileResource = new ClassPathResource(filePath);
+		if(!validatorService.validateFile(fileResource))
+			throw new RuntimeException("Not a valid file");
 		return new FlatFileItemReaderBuilder<Transaction>()
 				.name("sharedCsvReader")
-				.resource(new ClassPathResource(filePath))
+				.resource(fileResource)
 				.linesToSkip(1) // header
 				.delimited()
 				.names("transaction_id", "account_number", "transaction_date", "amount", "currency",
