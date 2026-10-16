@@ -41,7 +41,8 @@ public class ReconciliationProcessor implements ItemProcessor<Transaction, Trans
 			}
 			summaryDto.incrementMatchedRecords();
 		}
-		summaryDto.incrementMissingRecords();
+		else
+		   summaryDto.incrementMissingRecords();
 		return null;
 	}
 

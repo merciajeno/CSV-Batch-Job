@@ -26,7 +26,6 @@ import org.springframework.transaction.PlatformTransactionManager;
 import com.mercia.exception.CustomSkipPolicy;
 import com.mercia.listener.CustomSkipListener;
 import com.mercia.mapper.TransactionMapper;
-import com.mercia.model.Summary;
 import com.mercia.model.Transaction;
 import com.mercia.repository.TransactionRepository;
 import com.mercia.step.DuplicateProcessor;

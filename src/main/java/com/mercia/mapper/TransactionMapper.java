@@ -2,8 +2,10 @@ package com.mercia.mapper;
 
 import java.time.LocalDate;
 
+import org.springframework.batch.core.configuration.annotation.JobScope;
 import org.springframework.batch.infrastructure.item.file.mapping.FieldSetMapper;
 import org.springframework.batch.infrastructure.item.file.transform.FieldSet;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.BindException;
 
@@ -11,18 +13,26 @@ import com.mercia.exception.InvalidRecordException;
 import com.mercia.model.SummaryDto;
 import com.mercia.model.Transaction;
 
-import lombok.AllArgsConstructor;
-
 @Component
-@AllArgsConstructor
+@JobScope
 public class TransactionMapper implements FieldSetMapper<Transaction>{
 
-	private final SummaryDto summaryDto;
+	  private final SummaryDto summaryDto;
+	    private final String jobName;
+
+	    public TransactionMapper(
+	            SummaryDto summaryDto,
+	            @Value("#{jobExecution.jobInstance.jobName}") String jobName) {
+	        this.summaryDto = summaryDto;
+	        this.jobName = jobName;
+	    }
+	
 	@Override
 	public Transaction mapFieldSet(FieldSet fieldSet) throws BindException {
 		// TODO Auto-generated method stub
 		Transaction transaction = new Transaction();
-		
+		if(jobName.equals("myJob"))
+			 summaryDto.incrementTotalRecords();
 		String transactionId = fieldSet.readString(0);
 		if(transactionId.isEmpty())
 		{
@@ -47,7 +57,7 @@ public class TransactionMapper implements FieldSetMapper<Transaction>{
 		transaction.setTransactionType(fieldSet.readString(5));
 		transaction.setDescription(fieldSet.readString(6));
 		
-		summaryDto.incrementTotalRecords();
+		
 		return transaction;
 	}
 
