@@ -60,6 +60,7 @@ public class JobService {
 		        Long lastExecutionId = executionIds.get(0);
 		        JobExecution lastExecution = jobExplorer.getJobExecution(lastExecutionId);
 		        jobOperator.restart(lastExecution);
+		        
 		    }
 		}
 		

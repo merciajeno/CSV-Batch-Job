@@ -9,7 +9,10 @@ import org.springframework.stereotype.Component;
 import com.mercia.exception.InvalidRecordException;
 import com.mercia.model.Transaction;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Component
+@Slf4j
 public class DuplicateProcessor implements ItemProcessor<Transaction, Transaction>{
 
 	private final Set<String> existingTransaction = new HashSet<>();

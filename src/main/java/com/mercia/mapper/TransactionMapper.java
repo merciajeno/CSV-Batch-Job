@@ -20,19 +20,18 @@ public class TransactionMapper implements FieldSetMapper<Transaction>{
 		
 		String transactionId = fieldSet.readString(0);
 		if(transactionId.isEmpty())
-		{
 			throw new InvalidRecordException("Transaction Id is empty");
-		}
+		
 		transaction.setTransactionId(transactionId);
 		transaction.setAccountNumber(fieldSet.readString(1));
 		
 		String date = fieldSet.readString(2);
-		
 		transaction.setTransactionDate(LocalDate.parse(date));
 		
 		String amount = fieldSet.readString(3);
 		if(amount.isEmpty() || amount.equals("abc"))
 			throw new InvalidRecordException("Transaction amount is invalid");
+		
 		transaction.setAmount(Double.parseDouble(amount));
 		transaction.setCurrency(fieldSet.readString(4));
 		transaction.setTransactionType(fieldSet.readString(5));
