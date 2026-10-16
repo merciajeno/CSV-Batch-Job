@@ -1,7 +1,7 @@
 package com.mercia.step;
 
-import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.batch.infrastructure.item.ItemProcessor;
 import org.springframework.stereotype.Component;
@@ -19,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 public class DuplicateProcessor implements ItemProcessor<Transaction, Transaction>{
 
 	private final SummaryDto summaryDto;
-	private final Set<String> existingTransaction = new HashSet<>();
+	private final Set<String> existingTransaction = ConcurrentHashMap.newKeySet();//thread safe option
 	@Override
 	public Transaction process(Transaction item) throws Exception {
 		// TODO Auto-generated method stub
