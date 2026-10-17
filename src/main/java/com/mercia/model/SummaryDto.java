@@ -11,7 +11,8 @@ public class SummaryDto {
     private final AtomicLong totalMatchedRecords = new AtomicLong(0);
     private final AtomicLong totalMisMatchedRecords = new AtomicLong(0);
     private final AtomicLong totalMissingRecords = new AtomicLong(0);
-    private final AtomicLong totalFailedRecords = new AtomicLong(0);
+    private final AtomicLong totalInvalidRecords = new AtomicLong(0);
+    private final AtomicLong totalDuplicateRecords = new AtomicLong(0);
 
     public void incrementTotalRecords() {
         totalRecords.incrementAndGet();
@@ -29,8 +30,13 @@ public class SummaryDto {
         totalMissingRecords.incrementAndGet();
     }
 
-    public void incrementFailedRecords() {
-        totalFailedRecords.incrementAndGet();
+    public void incrementInvalidRecords() {
+        totalInvalidRecords.incrementAndGet();
+    }
+    
+    public void incrementDuplicateRecords()
+    {
+    	totalDuplicateRecords.incrementAndGet();
     }
 
     // Thread-safe getters to read current values
@@ -50,7 +56,13 @@ public class SummaryDto {
         return totalMissingRecords.get();
     }
 
-    public long getTotalFailedRecords() {
-        return totalFailedRecords.get();
+    public long getTotalInvalidRecords() {
+        return totalInvalidRecords.get();
     }
+    
+    public long getDuplicateRecords()
+    {
+    	return totalDuplicateRecords.get();
+    }
+    
 }

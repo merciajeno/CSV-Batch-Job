@@ -11,12 +11,15 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class CustomSkipListener implements SkipListener<Transaction, Transaction>{
 
-	public void onSkipInRead(Throwable t) {
-		log.info(t.getMessage());
-	}
 	
-	public void onSkipInProcess(Transaction item,Throwable t)
-	{
-		
-	}
+    public void onSkipInRead(Throwable t) {
+    	log.info(t.getLocalizedMessage());
+    }
+    
+    public void onSkipInProcess(Transaction item, Throwable t) {
+        log.info(t.getLocalizedMessage());
+    }
+
+   
+    
 }

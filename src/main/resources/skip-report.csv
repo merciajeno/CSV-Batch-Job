@@ -1,0 +1,251 @@
+Count,Type,Message
+1,PROCESS,Duplicate record
+2,READ,Invalid: bad amount]
+3,READ,Invalid: missing id]
+4,READ,Invalid: bad amount]
+5,READ,Invalid: bad amount]
+6,READ,Invalid: blank amount]
+7,READ,Invalid: missing id]
+8,READ,Invalid: blank amount]
+9,PROCESS,Duplicate record
+10,READ,Invalid: bad amount]
+11,READ,Invalid: missing id]
+12,PROCESS,Duplicate record
+13,READ,Invalid: blank amount]
+14,READ,Invalid: blank amount]
+15,READ,Invalid: missing id]
+16,READ,Invalid: blank amount]
+17,READ,Invalid: blank amount]
+18,READ,Invalid: blank amount]
+19,READ,Invalid: missing id]
+20,READ,Invalid: blank amount]
+21,PROCESS,Duplicate record
+22,PROCESS,Duplicate record
+23,PROCESS,Duplicate record
+24,PROCESS,Duplicate record
+25,READ,Invalid: blank amount]
+26,READ,Invalid: missing id]
+27,READ,Invalid: blank amount]
+28,PROCESS,Duplicate record
+29,READ,Invalid: blank amount]
+30,READ,Invalid: bad amount]
+31,READ,Invalid: blank amount]
+32,READ,Invalid: bad amount]
+33,READ,Invalid: missing id]
+34,PROCESS,Duplicate record
+35,PROCESS,Duplicate record
+36,READ,Invalid: blank amount]
+37,READ,Invalid: bad amount]
+38,READ,Invalid: bad amount]
+39,READ,Invalid: missing id]
+40,READ,Invalid: missing id]
+41,READ,Invalid: bad amount]
+42,PROCESS,Duplicate record
+43,READ,Invalid: blank amount]
+44,READ,Invalid: bad amount]
+45,PROCESS,Duplicate record
+46,PROCESS,Duplicate record
+47,READ,Invalid: bad amount]
+48,PROCESS,Duplicate record
+49,READ,Invalid: missing id]
+50,PROCESS,Duplicate record
+51,PROCESS,Duplicate record
+52,PROCESS,Duplicate record
+53,READ,Invalid: bad amount]
+54,READ,Invalid: bad amount]
+55,PROCESS,Duplicate record
+56,PROCESS,Duplicate record
+57,READ,Invalid: blank amount]
+58,PROCESS,Duplicate record
+59,READ,Invalid: blank amount]
+60,READ,Invalid: blank amount]
+61,READ,Invalid: bad amount]
+62,PROCESS,Duplicate record
+63,READ,Invalid: blank amount]
+64,PROCESS,Duplicate record
+65,PROCESS,Duplicate record
+66,PROCESS,Duplicate record
+67,PROCESS,Duplicate record
+68,READ,Invalid: bad amount]
+69,PROCESS,Duplicate record
+70,READ,Invalid: blank amount]
+71,PROCESS,Duplicate record
+72,READ,Invalid: blank amount]
+73,READ,Invalid: bad amount]
+74,READ,Invalid: missing id]
+75,READ,Invalid: missing id]
+76,PROCESS,Duplicate record
+77,PROCESS,Duplicate record
+78,PROCESS,Duplicate record
+79,PROCESS,Duplicate record
+80,READ,Invalid: missing id]
+81,PROCESS,Duplicate record
+82,READ,Invalid: missing id]
+83,PROCESS,Duplicate record
+84,READ,Invalid: bad amount]
+85,PROCESS,Duplicate record
+86,PROCESS,Duplicate record
+87,PROCESS,Duplicate record
+88,READ,Invalid: blank amount]
+89,READ,Invalid: missing id]
+90,PROCESS,Duplicate record
+91,READ,Invalid: blank amount]
+92,PROCESS,Duplicate record
+93,PROCESS,Duplicate record
+94,PROCESS,Duplicate record
+95,READ,Invalid: missing id]
+96,READ,Invalid: blank amount]
+97,PROCESS,Duplicate record
+98,PROCESS,Duplicate record
+99,READ,Invalid: bad amount]
+100,PROCESS,Duplicate record
+101,PROCESS,Duplicate record
+102,READ,Invalid: missing id]
+103,READ,Invalid: missing id]
+104,READ,Invalid: bad amount]
+105,PROCESS,Duplicate record
+106,PROCESS,Duplicate record
+107,READ,Invalid: bad amount]
+108,READ,Invalid: bad amount]
+109,READ,Invalid: blank amount]
+110,READ,Invalid: blank amount]
+111,READ,Invalid: blank amount]
+112,READ,Invalid: blank amount]
+113,PROCESS,Duplicate record
+114,READ,Invalid: blank amount]
+115,READ,Invalid: missing id]
+116,READ,Invalid: missing id]
+117,READ,Invalid: missing id]
+118,PROCESS,Duplicate record
+119,READ,Invalid: blank amount]
+120,READ,Invalid: missing id]
+121,PROCESS,Duplicate record
+122,PROCESS,Duplicate record
+123,READ,Invalid: missing id]
+124,PROCESS,Duplicate record
+125,PROCESS,Duplicate record
+126,PROCESS,Duplicate record
+127,PROCESS,Duplicate record
+128,READ,Invalid: blank amount]
+129,READ,Invalid: blank amount]
+130,READ,Invalid: blank amount]
+131,READ,Invalid: missing id]
+132,READ,Invalid: missing id]
+133,READ,Invalid: missing id]
+134,READ,Invalid: bad amount]
+135,READ,Invalid: bad amount]
+136,READ,Invalid: blank amount]
+137,READ,Invalid: blank amount]
+138,PROCESS,Duplicate record
+139,READ,Invalid: blank amount]
+140,READ,Invalid: missing id]
+141,READ,Invalid: bad amount]
+142,READ,Invalid: missing id]
+143,PROCESS,Duplicate record
+144,READ,Invalid: blank amount]
+145,READ,Invalid: bad amount]
+146,READ,Invalid: bad amount]
+147,PROCESS,Duplicate record
+148,READ,Invalid: missing id]
+149,READ,Invalid: missing id]
+150,READ,Invalid: bad amount]
+151,READ,Invalid: bad amount]
+152,PROCESS,Duplicate record
+153,READ,Invalid: blank amount]
+154,READ,Invalid: blank amount]
+155,PROCESS,Duplicate record
+156,READ,Invalid: missing id]
+157,PROCESS,Duplicate record
+158,PROCESS,Duplicate record
+159,PROCESS,Duplicate record
+160,READ,Invalid: missing id]
+161,READ,Invalid: missing id]
+162,READ,Invalid: bad amount]
+163,READ,Invalid: missing id]
+164,PROCESS,Duplicate record
+165,READ,Invalid: blank amount]
+166,READ,Invalid: bad amount]
+167,READ,Invalid: missing id]
+168,READ,Invalid: blank amount]
+169,PROCESS,Duplicate record
+170,READ,Invalid: bad amount]
+171,PROCESS,Duplicate record
+172,PROCESS,Duplicate record
+173,PROCESS,Duplicate record
+174,PROCESS,Duplicate record
+175,READ,Invalid: missing id]
+176,READ,Invalid: bad amount]
+177,READ,Invalid: blank amount]
+178,PROCESS,Duplicate record
+179,PROCESS,Duplicate record
+180,READ,Invalid: blank amount]
+181,PROCESS,Duplicate record
+182,PROCESS,Duplicate record
+183,PROCESS,Duplicate record
+184,PROCESS,Duplicate record
+185,PROCESS,Duplicate record
+186,READ,Invalid: bad amount]
+187,READ,Invalid: blank amount]
+188,PROCESS,Duplicate record
+189,PROCESS,Duplicate record
+190,PROCESS,Duplicate record
+191,PROCESS,Duplicate record
+192,PROCESS,Duplicate record
+193,PROCESS,Duplicate record
+194,READ,Invalid: missing id]
+195,READ,Invalid: bad amount]
+196,PROCESS,Duplicate record
+197,READ,Invalid: missing id]
+198,READ,Invalid: blank amount]
+199,PROCESS,Duplicate record
+200,PROCESS,Duplicate record
+201,READ,Invalid: bad amount]
+202,READ,Invalid: missing id]
+203,READ,Invalid: blank amount]
+204,PROCESS,Duplicate record
+205,READ,Invalid: missing id]
+206,READ,Invalid: bad amount]
+207,PROCESS,Duplicate record
+208,PROCESS,Duplicate record
+209,READ,Invalid: bad amount]
+210,READ,Invalid: missing id]
+211,READ,Invalid: blank amount]
+212,PROCESS,Duplicate record
+213,READ,Invalid: missing id]
+214,READ,Invalid: missing id]
+215,READ,Invalid: missing id]
+216,READ,Invalid: bad amount]
+217,READ,Invalid: blank amount]
+218,PROCESS,Duplicate record
+219,READ,Invalid: blank amount]
+220,PROCESS,Duplicate record
+221,READ,Invalid: bad amount]
+222,READ,Invalid: blank amount]
+223,PROCESS,Duplicate record
+224,PROCESS,Duplicate record
+225,READ,Invalid: bad amount]
+226,PROCESS,Duplicate record
+227,READ,Invalid: missing id]
+228,READ,Invalid: blank amount]
+229,READ,Invalid: blank amount]
+230,PROCESS,Duplicate record
+231,READ,Invalid: bad amount]
+232,PROCESS,Duplicate record
+233,READ,Invalid: blank amount]
+234,READ,Invalid: missing id]
+235,PROCESS,Duplicate record
+236,READ,Invalid: missing id]
+237,PROCESS,Duplicate record
+238,READ,Invalid: blank amount]
+239,READ,Invalid: missing id]
+240,PROCESS,Duplicate record
+241,PROCESS,Duplicate record
+242,READ,Invalid: bad amount]
+243,READ,Invalid: missing id]
+244,READ,Invalid: blank amount]
+245,READ,Invalid: blank amount]
+246,PROCESS,Duplicate record
+247,READ,Invalid: missing id]
+248,READ,Invalid: missing id]
+249,READ,Invalid: missing id]
+250,READ,Invalid: missing id]

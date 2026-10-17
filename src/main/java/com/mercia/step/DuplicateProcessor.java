@@ -25,7 +25,7 @@ public class DuplicateProcessor implements ItemProcessor<Transaction, Transactio
 		// TODO Auto-generated method stub
 		if(existingTransaction.contains(item.getTransactionId()))
 		{
-			summaryDto.incrementFailedRecords();
+			summaryDto.incrementDuplicateRecords();
 			throw new InvalidRecordException("Duplicate record");
 		}
 		existingTransaction.add(item.getTransactionId());

@@ -30,7 +30,8 @@ public class CsvJobApplication implements CommandLineRunner{
 		jobService.runJob();
 		jobService.runCsvJob();
 		Summary summary = new Summary();
-		summary.setTotalFailedRecords(summaryDto.getTotalFailedRecords());
+		summary.setTotalInvalidRecords(summaryDto.getTotalInvalidRecords());
+		summary.setTotalDuplicateRecords(summaryDto.getDuplicateRecords());
 		summary.setTotalMatchedRecords(summaryDto.getTotalMatchedRecords());
 		summary.setTotalMisMatchedRecords(summaryDto.getTotalMisMatchedRecords());
 		summary.setTotalMissingRecords(summaryDto.getTotalMissingRecords());

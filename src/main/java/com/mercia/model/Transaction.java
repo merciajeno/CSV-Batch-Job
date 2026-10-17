@@ -28,11 +28,5 @@ public class Transaction {
 	private String transactionType;
 	private String description;
 	
-	@Override
-	public String toString() {
-		return "Transaction [transactionId=" + transactionId + ", accountNumber=" + accountNumber + ", transactionDate="
-				+ transactionDate + ", amount=" + amount + ", currency=" + currency + ", transactionType="
-				+ transactionType + ", description=" + description + "]";
-	}
 	
 }

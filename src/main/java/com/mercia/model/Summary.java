@@ -22,6 +22,7 @@ public class Summary {
 	private Long totalMatchedRecords;
 	private Long totalMisMatchedRecords;
 	private Long totalMissingRecords;
-	private Long totalFailedRecords;
+	private Long totalDuplicateRecords;
+	private Long totalInvalidRecords;
 	
 }

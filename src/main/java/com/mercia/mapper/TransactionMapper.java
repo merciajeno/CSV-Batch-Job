@@ -36,7 +36,7 @@ public class TransactionMapper implements FieldSetMapper<Transaction>{
 		String transactionId = fieldSet.readString(0);
 		if(transactionId.isEmpty())
 		{
-			summaryDto.incrementFailedRecords();
+			summaryDto.incrementInvalidRecords();
 			throw new InvalidRecordException("Transaction Id is empty");
 		}
 		
@@ -48,7 +48,7 @@ public class TransactionMapper implements FieldSetMapper<Transaction>{
 		
 		String amount = fieldSet.readString(3);
 		if (amount == null || !amount.matches("\\d+(\\.\\d+)?")) {
-			summaryDto.incrementFailedRecords();
+			summaryDto.incrementInvalidRecords();
 		    throw new InvalidRecordException("Transaction amount is invalid");
 		}
 		
