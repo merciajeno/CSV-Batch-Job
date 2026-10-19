@@ -4,6 +4,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.mercia.listener.CustomSkipListener;
 import com.mercia.model.Summary;
 import com.mercia.model.SummaryDto;
 import com.mercia.repository.SummaryRepository;
@@ -18,6 +19,7 @@ public class CsvJobApplication implements CommandLineRunner{
 	private final JobService jobService;
 	private final SummaryRepository summaryRepository;
 	private final SummaryDto summaryDto;
+	private final CustomSkipListener customSkipListener;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(CsvJobApplication.class, args);
@@ -37,6 +39,8 @@ public class CsvJobApplication implements CommandLineRunner{
 		summary.setTotalMissingRecords(summaryDto.getTotalMissingRecords());
 		summary.setTotalRecords(summaryDto.getTotalRecords());
 		summaryRepository.save(summary);
+		
+		customSkipListener.writeSkippedRecords();
 	}
 
 }

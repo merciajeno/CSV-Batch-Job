@@ -104,7 +104,8 @@ public class BatchConfig {
 	@Bean
 	@JobScope
 	FlatFileItemReader<Transaction> reader(TransactionMapper mapper,
-			@Value("#{jobParameters['input.file.path']}") String filePath,FileValidationService validatorService) {
+			@Value("#{jobParameters['input.file.path']}") String filePath
+			,FileValidationService validatorService) {
 
 		ClassPathResource fileResource = new ClassPathResource(filePath);
 		if(!validatorService.validateFile(fileResource))

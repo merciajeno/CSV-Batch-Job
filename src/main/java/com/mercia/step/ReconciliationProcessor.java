@@ -24,18 +24,18 @@ public class ReconciliationProcessor implements ItemProcessor<Transaction, Trans
 		// TODO Auto-generated method stub
 		String txnId = item.getTransactionId();
 		
-		Optional<Transaction> transactionByid = transactionRepository.findById(txnId);
+		Optional<Transaction> transactionById = transactionRepository.findById(txnId);
 		
-		if(transactionByid.isPresent())
+		if(transactionById.isPresent())
 		{
 			
 			
-			Transaction existingTransaction = transactionByid.get();
+			Transaction existingTransaction = transactionById.get();
 			double existingAmount = existingTransaction.getAmount();
 			if(existingAmount!=item.getAmount())
 			{	
 				summaryDto.incrementMisMatchedRecords();
-				log.info("Updated:"+item.getTransactionId());
+				//log.info("Updated:"+item.getTransactionId());
 			//existingTransaction.setAmount(item.getAmount());
 			return item;// we want to update only the mismatched records
 			}

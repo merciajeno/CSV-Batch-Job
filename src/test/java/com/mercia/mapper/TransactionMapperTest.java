@@ -40,7 +40,7 @@ class TransactionMapperTest {
         when(fieldSet.readString(1)).thenReturn("ACC001");
         when(fieldSet.readString(2)).thenReturn("2026-10-17");
         when(fieldSet.readString(3)).thenReturn("100.50");
-        when(fieldSet.readString(4)).thenReturn("INR");
+        when(fieldSet.readString(4)).thenReturn("USD");
         when(fieldSet.readString(5)).thenReturn("CREDIT");
         when(fieldSet.readString(6)).thenReturn("Salary");
 
@@ -51,7 +51,7 @@ class TransactionMapperTest {
         assertEquals(LocalDate.of(2026, 10, 17),
                      result.getTransactionDate());
         assertEquals(100.50, result.getAmount(), 0.001);
-        assertEquals("INR", result.getCurrency());
+        assertEquals("USD", result.getCurrency());
         assertEquals("CREDIT", result.getTransactionType());
         assertEquals("Salary", result.getDescription());
 
@@ -103,7 +103,7 @@ class TransactionMapperTest {
         when(fieldSet.readString(1)).thenReturn("ACC001");
         when(fieldSet.readString(2)).thenReturn("2026-10-17");
         when(fieldSet.readString(3)).thenReturn("100.50");
-        when(fieldSet.readString(4)).thenReturn("INR");
+        when(fieldSet.readString(4)).thenReturn("USD");
         when(fieldSet.readString(5)).thenReturn("CREDIT");
         when(fieldSet.readString(6)).thenReturn("Salary");
 

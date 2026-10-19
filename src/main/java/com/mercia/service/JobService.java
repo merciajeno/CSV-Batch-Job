@@ -2,6 +2,7 @@ package com.mercia.service;
 
 import java.util.List;
 
+import org.springframework.batch.core.BatchStatus;
 import org.springframework.batch.core.job.Job;
 import org.springframework.batch.core.job.JobExecution;
 import org.springframework.batch.core.job.JobInstance;
@@ -59,7 +60,8 @@ public class JobService {
 		    if (!executionIds.isEmpty()) {
 		        Long lastExecutionId = executionIds.get(0);
 		        JobExecution lastExecution = jobExplorer.getJobExecution(lastExecutionId);
-		        jobOperator.restart(lastExecution);
+		        if(lastExecution.getStatus().equals(BatchStatus.FAILED))
+		         jobOperator.restart(lastExecution);
 		        
 		    }
 		}

@@ -39,7 +39,6 @@ public class SummaryDto {
     	totalDuplicateRecords.incrementAndGet();
     }
 
-    // Thread-safe getters to read current values
     public long getTotalRecords() {
         return totalRecords.get();
     }
