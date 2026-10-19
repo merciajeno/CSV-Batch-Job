@@ -68,4 +68,20 @@ public class JobService {
 		
 	}
 	
+	public boolean previousJobSuccess(String jobName) throws NoSuchJobInstanceException
+	{
+		
+		JobInstance lastInstance = jobExplorer.getLastJobInstance(jobName);
+		if (lastInstance != null) {
+		    List<Long> executionIds = jobOperator.getExecutions(lastInstance.getInstanceId());
+		    
+		    if (!executionIds.isEmpty()) {
+		        Long lastExecutionId = executionIds.get(0);
+		        JobExecution lastExecution = jobExplorer.getJobExecution(lastExecutionId);
+		        if(lastExecution.getStatus().equals(BatchStatus.FAILED))
+		        	return false;
+		    }
+		}
+		return true;
+	}
 }

@@ -53,6 +53,7 @@ class FileValidationServiceTest {
                 return file.toUri().toURL();
             }
             
+            
         };
 
         assertTrue(fileValidationService.validateFile(resource));
@@ -117,5 +118,80 @@ class FileValidationServiceTest {
         };
 
         assertFalse(fileValidationService.validateFile(resource));
+    }
+    
+    @Test
+    void shouldRejectIfFileOverLimit() throws IOException
+    {
+    	Path file = tempDir.resolve("fileOverLimit.csv");
+  
+
+        ClassPathResource resource = new ClassPathResource("fileOverLimit.csv") {
+            @Override
+            public boolean exists() {
+                return Files.exists(file);
+            }
+
+            @Override
+            public String getFilename() {
+                return "fileOverLimit.csv";
+            }
+
+            @Override
+            public java.io.InputStream getInputStream() throws IOException {
+                return Files.newInputStream(file);
+            }
+           
+            @Override 
+            public URL getURL() throws IOException
+            {
+            	return file.toUri().toURL();
+            }
+            
+            @Override
+            public long contentLength()
+            {
+            	return 20*1024*1024;
+            }
+        };
+        assertFalse(fileValidationService.validateFile(resource));
+    }
+    
+    @Test
+    void shouldAcceptFileWithinLimit() throws IOException
+    {
+    	Path file = tempDir.resolve("fileInLimit.csv");
+    	Files.writeString(file,
+                "transaction_id,account_number,transaction_date,amount,currency,transaction_type,description\n");
+
+        ClassPathResource resource = new ClassPathResource("fileInLimit.csv") {
+            @Override
+            public boolean exists() {
+                return Files.exists(file);
+            }
+
+            @Override
+            public String getFilename() {
+                return "fileInLimit.csv";
+            }
+
+            @Override
+            public java.io.InputStream getInputStream() throws IOException {
+                return Files.newInputStream(file);
+            }
+           
+            @Override 
+            public URL getURL() throws IOException
+            {
+            	return file.toUri().toURL();
+            }
+            
+            @Override
+            public long contentLength()
+            {
+            	return 2*1024*1024;
+            }
+        };
+        assertTrue(fileValidationService.validateFile(resource));
     }
 }

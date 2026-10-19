@@ -1,5 +1,7 @@
 package com.mercia.service;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
@@ -11,11 +13,13 @@ import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.batch.core.BatchStatus;
 import org.springframework.batch.core.job.Job;
 import org.springframework.batch.core.job.JobExecution;
 import org.springframework.batch.core.job.JobInstance;
 import org.springframework.batch.core.job.parameters.JobParameters;
 import org.springframework.batch.core.launch.JobOperator;
+import org.springframework.batch.core.launch.NoSuchJobInstanceException;
 import org.springframework.batch.core.repository.explore.JobExplorer;
 
 class JobServiceTest {
@@ -83,9 +87,43 @@ class JobServiceTest {
             .thenReturn(List.of(20L));
         when(jobExplorer.getJobExecution(20L))
             .thenReturn(execution);
-
+        when(execution.getStatus()).thenReturn(BatchStatus.FAILED);
         jobService.restartJob();
 
         verify(jobOperator).restart(execution);
+    }
+    
+    @Test
+    void shouldReturnTrueWhenJobSuccess() throws NoSuchJobInstanceException
+    {
+    	 JobInstance instance = mock(JobInstance.class);
+         JobExecution execution = mock(JobExecution.class);
+
+         when(instance.getInstanceId()).thenReturn(10L);
+         when(jobExplorer.getLastJobInstance("myJob"))
+             .thenReturn(instance);
+         when(jobOperator.getExecutions(10L))
+             .thenReturn(List.of(20L));
+         when(jobExplorer.getJobExecution(20L))
+             .thenReturn(execution);
+         when(execution.getStatus()).thenReturn(BatchStatus.COMPLETED);
+         assertTrue(jobService.previousJobSuccess("myJob"));
+    }
+    
+    @Test
+    void shouldReturnFalseWhenJobFailed() throws NoSuchJobInstanceException
+    {
+    	JobInstance instance = mock(JobInstance.class);
+        JobExecution execution = mock(JobExecution.class);
+
+        when(instance.getInstanceId()).thenReturn(10L);
+        when(jobExplorer.getLastJobInstance("myJob"))
+            .thenReturn(instance);
+        when(jobOperator.getExecutions(10L))
+            .thenReturn(List.of(20L));
+        when(jobExplorer.getJobExecution(20L))
+            .thenReturn(execution);
+        when(execution.getStatus()).thenReturn(BatchStatus.FAILED);
+        assertFalse(jobService.previousJobSuccess("myJob"));
     }
 }

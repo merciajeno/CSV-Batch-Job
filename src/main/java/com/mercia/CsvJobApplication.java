@@ -27,10 +27,14 @@ public class CsvJobApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
 		//jobService.restartJob();
 		jobService.runJob();
-		jobService.runCsvJob();
+		
+		if(jobService.previousJobSuccess("myJob"))// if previous job success, then run the next job
+		  jobService.runCsvJob();
+		
+		if(jobService.previousJobSuccess("csvJob"))
+		{
 		Summary summary = new Summary();
 		summary.setTotalInvalidRecords(summaryDto.getTotalInvalidRecords());
 		summary.setTotalDuplicateRecords(summaryDto.getDuplicateRecords());
@@ -41,6 +45,7 @@ public class CsvJobApplication implements CommandLineRunner{
 		summaryRepository.save(summary);
 		
 		customSkipListener.writeSkippedRecords();
+		}
 	}
 
 }

@@ -48,8 +48,8 @@ class CsvJobApplicationTests {
         when(summaryDto.getTotalMatchedRecords()).thenReturn(3L);
         when(summaryDto.getTotalMisMatchedRecords()).thenReturn(2L);
         when(summaryDto.getTotalMissingRecords()).thenReturn(2L);
-
-        // Act
+        when(jobService.previousJobSuccess("myJob")).thenReturn(true);
+        when(jobService.previousJobSuccess("csvJob")).thenReturn(true);
         application.run();
 
         // Assert: verify both jobs were invoked
