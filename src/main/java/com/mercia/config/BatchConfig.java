@@ -1,5 +1,7 @@
 package com.mercia.config;
 
+import java.io.IOException;
+
 import javax.sql.DataSource;
 
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
@@ -105,7 +107,7 @@ public class BatchConfig {
 	@JobScope
 	FlatFileItemReader<Transaction> reader(TransactionMapper mapper,
 			@Value("#{jobParameters['input.file.path']}") String filePath
-			,FileValidationService validatorService) {
+			,FileValidationService validatorService) throws IOException{
 
 		ClassPathResource fileResource = new ClassPathResource(filePath);
 		if(!validatorService.validateFile(fileResource))

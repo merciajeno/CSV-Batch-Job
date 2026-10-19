@@ -29,7 +29,6 @@ public class ReconciliationProcessor implements ItemProcessor<Transaction, Trans
 		if(transactionById.isPresent())
 		{
 			
-			
 			Transaction existingTransaction = transactionById.get();
 			double existingAmount = existingTransaction.getAmount();
 			if(existingAmount!=item.getAmount())

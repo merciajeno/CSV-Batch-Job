@@ -7,6 +7,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -163,7 +164,7 @@ class BatchConfigTest {
     }
     
     @Test
-    void shouldCreateReaderWhenFileIsValid() {
+    void shouldCreateReaderWhenFileIsValid() throws IOException {
 
         when(validatorService.validateFile(any(ClassPathResource.class)))
                 .thenReturn(true);
@@ -176,7 +177,7 @@ class BatchConfigTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenFileIsInvalid() {
+    void shouldThrowExceptionWhenFileIsInvalid() throws IOException {
 
         when(validatorService.validateFile(any(ClassPathResource.class)))
                 .thenReturn(false);

@@ -1,8 +1,10 @@
 package com.mercia.step;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -25,36 +27,39 @@ class FileValidationServiceTest {
 
     @Test
     void shouldReturnTrueForValidCsvFile() throws IOException {
-
         Path file = tempDir.resolve("transactions.csv");
 
         Files.writeString(file,
             "transaction_id,account_number,transaction_date,amount,currency,transaction_type,description\n");
 
-        boolean result = fileValidationService.validateFile(
-            new ClassPathResource("transactions.csv") {
-                @Override
-                public boolean exists() {
-                    return true;
-                }
-
-                @Override
-                public String getFilename() {
-                    return file.getFileName().toString();
-                }
-
-                @Override
-                public java.io.InputStream getInputStream() throws IOException {
-                    return Files.newInputStream(file);
-                }
+        ClassPathResource resource = new ClassPathResource("transactions.csv") {
+            @Override
+            public boolean exists() {
+                return Files.exists(file);
             }
-        );
 
-        assertTrue(result);
+            @Override
+            public String getFilename() {
+                return "transactions.csv";
+            }
+
+            @Override
+            public java.io.InputStream getInputStream() throws IOException {
+                return Files.newInputStream(file);
+            }
+             
+            @Override
+            public java.net.URL getURL() throws IOException {
+                return file.toUri().toURL();
+            }
+            
+        };
+
+        assertTrue(fileValidationService.validateFile(resource));
     }
 
     @Test
-    void shouldReturnFalseWhenFileDoesNotExist() {
+    void shouldReturnFalseWhenFileDoesNotExist() throws IOException {
 
         ClassPathResource resource = new ClassPathResource("missing.csv");
 
@@ -64,7 +69,7 @@ class FileValidationServiceTest {
     }
 
     @Test
-    void shouldReturnFalseForNonCsvFile() {
+    void shouldReturnFalseForNonCsvFile() throws IOException {
 
         ClassPathResource resource = new ClassPathResource("transactions.txt") {
             @Override
@@ -90,7 +95,7 @@ class FileValidationServiceTest {
         ClassPathResource resource = new ClassPathResource("wrong.csv") {
             @Override
             public boolean exists() {
-                return true;
+                return Files.exists(file);
             }
 
             @Override
@@ -102,6 +107,13 @@ class FileValidationServiceTest {
             public java.io.InputStream getInputStream() throws IOException {
                 return Files.newInputStream(file);
             }
+           
+            @Override 
+            public URL getURL() throws IOException
+            {
+            	return file.toUri().toURL();
+            }
+            
         };
 
         assertFalse(fileValidationService.validateFile(resource));
