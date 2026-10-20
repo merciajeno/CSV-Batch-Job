@@ -34,7 +34,9 @@ public class ReconciliationProcessor implements ItemProcessor<Transaction, Trans
 			if(existingAmount!=item.getAmount())
 			{	
 				summaryDto.incrementMisMatchedRecords();
-				//log.info("Updated:"+item.getTransactionId());
+				String updatedStatement = String.format("Transaction %s updated. Previous was:%f . Now :%f", 
+						item.getTransactionId(),existingAmount,item.getAmount());
+				log.info(updatedStatement);
 			//existingTransaction.setAmount(item.getAmount());
 			return item;// we want to update only the mismatched records
 			}

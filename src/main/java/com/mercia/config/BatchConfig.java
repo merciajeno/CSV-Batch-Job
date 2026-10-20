@@ -34,9 +34,12 @@ import com.mercia.step.DuplicateProcessor;
 import com.mercia.step.FileValidationService;
 import com.mercia.step.ReconciliationProcessor;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Configuration
 @EnableBatchProcessing
 @EnableJdbcJobRepository
+@Slf4j
 public class BatchConfig {
 
 	@Bean // to include metadata db from the jar file script
@@ -110,8 +113,10 @@ public class BatchConfig {
 			,FileValidationService validatorService) throws IOException{
 
 		ClassPathResource fileResource = new ClassPathResource(filePath);
+		
 		if(!validatorService.validateFile(fileResource))
 			throw new RuntimeException("Not a valid file");
+		
 		return new FlatFileItemReaderBuilder<Transaction>()
 				.name("sharedCsvReader")
 				.resource(fileResource)

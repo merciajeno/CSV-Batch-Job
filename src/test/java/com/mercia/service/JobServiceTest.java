@@ -19,6 +19,8 @@ import org.springframework.batch.core.job.JobExecution;
 import org.springframework.batch.core.job.JobInstance;
 import org.springframework.batch.core.job.parameters.JobParameters;
 import org.springframework.batch.core.launch.JobOperator;
+import org.springframework.batch.core.launch.JobRestartException;
+import org.springframework.batch.core.launch.NoSuchJobException;
 import org.springframework.batch.core.launch.NoSuchJobInstanceException;
 import org.springframework.batch.core.repository.explore.JobExplorer;
 
@@ -61,6 +63,7 @@ class JobServiceTest {
             eq(secondJob), any(JobParameters.class)
         );
     }
+    
 
     @Test
     void shouldNotRestartWhenNoPreviousInstanceExists()
@@ -74,6 +77,24 @@ class JobServiceTest {
         verify(jobOperator, never()).restart(any(JobExecution.class));
     }
 
+    @Test
+    void shouldNotRestartWhenPreviousInstanceSuccess() throws NoSuchJobInstanceException, JobRestartException, NoSuchJobException
+    {
+    	JobInstance instance = mock(JobInstance.class);
+        JobExecution execution = mock(JobExecution.class);
+
+        when(instance.getInstanceId()).thenReturn(10L);
+        when(jobExplorer.getLastJobInstance("myJob"))
+            .thenReturn(instance);
+        when(jobOperator.getExecutions(10L))
+            .thenReturn(List.of(20L));
+        when(jobExplorer.getJobExecution(20L))
+            .thenReturn(execution);
+        when(execution.getStatus()).thenReturn(BatchStatus.COMPLETED);
+        jobService.restartJob();
+
+        verify(jobOperator,never()).restart(execution);
+    }
     @Test
     void shouldRestartLastExecution() throws Exception {
 

@@ -1,3 +1,1 @@
 stage,transaction_id,error_message
-READ,,"Invalid row"
-PROCESS,TXN001,"Invalid amount"

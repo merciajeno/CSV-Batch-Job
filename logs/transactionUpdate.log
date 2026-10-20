@@ -1,0 +1,578 @@
+2026-10-20T09:54:39.366+05:30  INFO 22916 --- [csv-job] [main] com.mercia.CsvJobApplication             : Starting CsvJobApplication using Java 25.0.4.1 with PID 22916 (C:\Users\caytm.CAYTM-05\Documents\workspace-spring-tools-for-eclipse-5.4.0.RELEASE\csv-job\target\classes started by caytm in C:\Users\caytm.CAYTM-05\Documents\workspace-spring-tools-for-eclipse-5.4.0.RELEASE\csv-job)
+2026-10-20T09:54:39.377+05:30  INFO 22916 --- [csv-job] [main] com.mercia.CsvJobApplication             : No active profile set, falling back to 1 default profile: "default"
+2026-10-20T09:54:40.029+05:30  INFO 22916 --- [csv-job] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-20T09:54:40.252+05:30  INFO 22916 --- [csv-job] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 207 ms. Found 2 JPA repository interfaces.
+2026-10-20T09:54:40.596+05:30  INFO 22916 --- [csv-job] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-20T09:54:40.671+05:30  INFO 22916 --- [csv-job] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-20T09:54:41.101+05:30  INFO 22916 --- [csv-job] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-20T09:54:41.144+05:30  INFO 22916 --- [csv-job] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-20T09:54:41.357+05:30  INFO 22916 --- [csv-job] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@652e345
+2026-10-20T09:54:41.359+05:30  INFO 22916 --- [csv-job] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-20T09:54:41.480+05:30  INFO 22916 --- [csv-job] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/csv]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: csv/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-20T09:54:42.328+05:30  INFO 22916 --- [csv-job] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-20T09:54:42.402+05:30  INFO 22916 --- [csv-job] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-20T09:54:42.541+05:30  INFO 22916 --- [csv-job] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-20T09:54:42.790+05:30  INFO 22916 --- [csv-job] [main] com.mercia.CsvJobApplication             : Started CsvJobApplication in 3.884 seconds (process running for 4.38)
+2026-10-20T09:54:42.865+05:30  INFO 22916 --- [csv-job] [main] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=myJob]] launched with the following parameters: [{JobParameter{name='timeStamp', value=1792470282794, type=class java.lang.Long, identifying=true},JobParameter{name='input.file.path', value=, type=class java.lang.String, identifying=true}}]
+2026-10-20T09:54:42.933+05:30  INFO 22916 --- [csv-job] [main] o.s.batch.core.step.AbstractStep         : Executing step: [jobStep]
+2026-10-20T09:54:42.958+05:30 ERROR 22916 --- [csv-job] [main] com.mercia.config.BatchConfig            : Not a valid file
+2026-10-20T09:54:42.971+05:30 ERROR 22916 --- [csv-job] [main] o.s.batch.core.step.AbstractStep         : Encountered an error executing step jobStep in job myJob
+
+org.springframework.batch.infrastructure.item.ItemStreamException: Failed to initialize the reader
+	at org.springframework.batch.infrastructure.item.support.AbstractItemCountingItemStreamItemReader.open(AbstractItemCountingItemStreamItemReader.java:154) ~[spring-batch-infrastructure-6.0.5.jar:6.0.5]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.support.DelegatingIntroductionInterceptor.doProceed(DelegatingIntroductionInterceptor.java:134) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.support.DelegatingIntroductionInterceptor.invoke(DelegatingIntroductionInterceptor.java:122) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.batch.infrastructure.item.file.FlatFileItemReader$$SpringCGLIB$$0.open(<generated>) ~[spring-batch-infrastructure-6.0.5.jar:6.0.5]
+	at org.springframework.batch.infrastructure.item.support.CompositeItemStream.open(CompositeItemStream.java:138) ~[spring-batch-infrastructure-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.step.item.ChunkOrientedStep.open(ChunkOrientedStep.java:357) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.step.AbstractStep.execute(AbstractStep.java:248) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.job.SimpleStepHandler.handleStep(SimpleStepHandler.java:128) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.job.AbstractJob.handleStep(AbstractJob.java:397) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.job.SimpleJob.doExecute(SimpleJob.java:129) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.job.AbstractJob.execute(AbstractJob.java:293) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher$1.run(TaskExecutorJobLauncher.java:220) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.core.task.SyncTaskExecutor.execute(SyncTaskExecutor.java:88) ~[spring-core-7.0.9.jar:7.0.9]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher.launchJobExecution(TaskExecutorJobLauncher.java:211) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher.run(TaskExecutorJobLauncher.java:109) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133) ~[spring-tx-7.0.9.jar:7.0.9]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371) ~[spring-tx-7.0.9.jar:7.0.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130) ~[spring-tx-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:222) ~[spring-aop-7.0.9.jar:7.0.9]
+	at jdk.proxy2/jdk.proxy2.$Proxy108.run(Unknown Source) ~[na:na]
+	at com.mercia.service.JobService.runJob(JobService.java:40) ~[classes/:na]
+	at com.mercia.CsvJobApplication.run(CsvJobApplication.java:31) ~[classes/:na]
+	at org.springframework.boot.SpringApplication.lambda$callRunner$1(SpringApplication.java:792) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:82) ~[spring-core-7.0.9.jar:7.0.9]
+	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60) ~[spring-core-7.0.9.jar:7.0.9]
+	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:86) ~[spring-core-7.0.9.jar:7.0.9]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:800) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:791) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.boot.SpringApplication.lambda$callRunners$0(SpringApplication.java:776) ~[spring-boot-4.1.1.jar:4.1.1]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186) ~[na:na]
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:571) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632) ~[na:na]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:776) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:328) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.1.1.jar:4.1.1]
+	at com.mercia.CsvJobApplication.main(CsvJobApplication.java:25) ~[classes/:na]
+Caused by: java.lang.IllegalStateException: Input resource must be readable (reader is in 'strict' mode): class path resource []
+	at org.springframework.batch.infrastructure.item.file.FlatFileItemReader.doOpen(FlatFileItemReader.java:355) ~[spring-batch-infrastructure-6.0.5.jar:6.0.5]
+	at org.springframework.batch.infrastructure.item.support.AbstractItemCountingItemStreamItemReader.open(AbstractItemCountingItemStreamItemReader.java:151) ~[spring-batch-infrastructure-6.0.5.jar:6.0.5]
+	... 54 common frames omitted
+
+2026-10-20T09:54:42.975+05:30  INFO 22916 --- [csv-job] [main] o.s.batch.core.step.AbstractStep         : Step: [jobStep] executed in 44ms
+2026-10-20T09:54:42.995+05:30  INFO 22916 --- [csv-job] [main] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=myJob]] completed with the following parameters: [{JobParameter{name='timeStamp', value=1792470282794, type=class java.lang.Long, identifying=true},JobParameter{name='input.file.path', value=, type=class java.lang.String, identifying=true}}] and the following status: [FAILED] in 72ms
+2026-10-20T09:54:43.100+05:30  INFO 22916 --- [csv-job] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-20T09:54:43.103+05:30  INFO 22916 --- [csv-job] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-10-20T09:54:43.108+05:30  INFO 22916 --- [csv-job] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-10-20T09:59:16.668+05:30  INFO 13720 --- [csv-job] [main] com.mercia.CsvJobApplication             : Starting CsvJobApplication using Java 25.0.4.1 with PID 13720 (C:\Users\caytm.CAYTM-05\Documents\workspace-spring-tools-for-eclipse-5.4.0.RELEASE\csv-job\target\classes started by caytm in C:\Users\caytm.CAYTM-05\Documents\workspace-spring-tools-for-eclipse-5.4.0.RELEASE\csv-job)
+2026-10-20T09:59:16.671+05:30  INFO 13720 --- [csv-job] [main] com.mercia.CsvJobApplication             : No active profile set, falling back to 1 default profile: "default"
+2026-10-20T09:59:17.092+05:30  INFO 13720 --- [csv-job] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-20T09:59:17.211+05:30  INFO 13720 --- [csv-job] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 112 ms. Found 2 JPA repository interfaces.
+2026-10-20T09:59:17.504+05:30  INFO 13720 --- [csv-job] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-20T09:59:17.547+05:30  INFO 13720 --- [csv-job] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-20T09:59:17.908+05:30  INFO 13720 --- [csv-job] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-20T09:59:17.935+05:30  INFO 13720 --- [csv-job] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-20T09:59:18.110+05:30  INFO 13720 --- [csv-job] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7f6b7426
+2026-10-20T09:59:18.112+05:30  INFO 13720 --- [csv-job] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-20T09:59:18.204+05:30  INFO 13720 --- [csv-job] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/csv]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: csv/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-20T09:59:18.929+05:30  INFO 13720 --- [csv-job] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-20T09:59:18.988+05:30  INFO 13720 --- [csv-job] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-20T09:59:19.117+05:30  INFO 13720 --- [csv-job] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-20T09:59:19.349+05:30  INFO 13720 --- [csv-job] [main] com.mercia.CsvJobApplication             : Started CsvJobApplication in 3.01 seconds (process running for 3.469)
+2026-10-20T09:59:19.418+05:30  INFO 13720 --- [csv-job] [main] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=myJob]] launched with the following parameters: [{JobParameter{name='timeStamp', value=1792470559352, type=class java.lang.Long, identifying=true},JobParameter{name='input.file.path', value=/.csv, type=class java.lang.String, identifying=true}}]
+2026-10-20T09:59:19.486+05:30  INFO 13720 --- [csv-job] [main] o.s.batch.core.step.AbstractStep         : Executing step: [jobStep]
+2026-10-20T09:59:19.510+05:30 ERROR 13720 --- [csv-job] [main] com.mercia.config.BatchConfig            : Not a valid file
+2026-10-20T09:59:19.518+05:30 ERROR 13720 --- [csv-job] [main] o.s.batch.core.step.AbstractStep         : Encountered an error executing step jobStep in job myJob
+
+org.springframework.batch.infrastructure.item.ItemStreamException: Failed to initialize the reader
+	at org.springframework.batch.infrastructure.item.support.AbstractItemCountingItemStreamItemReader.open(AbstractItemCountingItemStreamItemReader.java:154) ~[spring-batch-infrastructure-6.0.5.jar:6.0.5]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.support.DelegatingIntroductionInterceptor.doProceed(DelegatingIntroductionInterceptor.java:134) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.support.DelegatingIntroductionInterceptor.invoke(DelegatingIntroductionInterceptor.java:122) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.batch.infrastructure.item.file.FlatFileItemReader$$SpringCGLIB$$0.open(<generated>) ~[spring-batch-infrastructure-6.0.5.jar:6.0.5]
+	at org.springframework.batch.infrastructure.item.support.CompositeItemStream.open(CompositeItemStream.java:138) ~[spring-batch-infrastructure-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.step.item.ChunkOrientedStep.open(ChunkOrientedStep.java:357) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.step.AbstractStep.execute(AbstractStep.java:248) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.job.SimpleStepHandler.handleStep(SimpleStepHandler.java:128) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.job.AbstractJob.handleStep(AbstractJob.java:397) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.job.SimpleJob.doExecute(SimpleJob.java:129) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.job.AbstractJob.execute(AbstractJob.java:293) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher$1.run(TaskExecutorJobLauncher.java:220) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.core.task.SyncTaskExecutor.execute(SyncTaskExecutor.java:88) ~[spring-core-7.0.9.jar:7.0.9]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher.launchJobExecution(TaskExecutorJobLauncher.java:211) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher.run(TaskExecutorJobLauncher.java:109) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133) ~[spring-tx-7.0.9.jar:7.0.9]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371) ~[spring-tx-7.0.9.jar:7.0.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130) ~[spring-tx-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:222) ~[spring-aop-7.0.9.jar:7.0.9]
+	at jdk.proxy2/jdk.proxy2.$Proxy108.run(Unknown Source) ~[na:na]
+	at com.mercia.service.JobService.runJob(JobService.java:40) ~[classes/:na]
+	at com.mercia.CsvJobApplication.run(CsvJobApplication.java:31) ~[classes/:na]
+	at org.springframework.boot.SpringApplication.lambda$callRunner$1(SpringApplication.java:792) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:82) ~[spring-core-7.0.9.jar:7.0.9]
+	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60) ~[spring-core-7.0.9.jar:7.0.9]
+	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:86) ~[spring-core-7.0.9.jar:7.0.9]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:800) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:791) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.boot.SpringApplication.lambda$callRunners$0(SpringApplication.java:776) ~[spring-boot-4.1.1.jar:4.1.1]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186) ~[na:na]
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:571) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632) ~[na:na]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:776) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:328) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.1.1.jar:4.1.1]
+	at com.mercia.CsvJobApplication.main(CsvJobApplication.java:25) ~[classes/:na]
+Caused by: java.lang.IllegalStateException: Input resource must exist (reader is in 'strict' mode): class path resource [.csv]
+	at org.springframework.batch.infrastructure.item.file.FlatFileItemReader.doOpen(FlatFileItemReader.java:347) ~[spring-batch-infrastructure-6.0.5.jar:6.0.5]
+	at org.springframework.batch.infrastructure.item.support.AbstractItemCountingItemStreamItemReader.open(AbstractItemCountingItemStreamItemReader.java:151) ~[spring-batch-infrastructure-6.0.5.jar:6.0.5]
+	... 54 common frames omitted
+
+2026-10-20T09:59:19.523+05:30  INFO 13720 --- [csv-job] [main] o.s.batch.core.step.AbstractStep         : Step: [jobStep] executed in 39ms
+2026-10-20T09:59:19.540+05:30  INFO 13720 --- [csv-job] [main] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=myJob]] completed with the following parameters: [{JobParameter{name='timeStamp', value=1792470559352, type=class java.lang.Long, identifying=true},JobParameter{name='input.file.path', value=/.csv, type=class java.lang.String, identifying=true}}] and the following status: [FAILED] in 67ms
+2026-10-20T09:59:19.639+05:30  INFO 13720 --- [csv-job] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-20T09:59:19.642+05:30  INFO 13720 --- [csv-job] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-10-20T09:59:19.647+05:30  INFO 13720 --- [csv-job] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-10-20T10:03:01.670+05:30  INFO 5700 --- [csv-job] [main] com.mercia.CsvJobApplication             : Starting CsvJobApplication using Java 25.0.4.1 with PID 5700 (C:\Users\caytm.CAYTM-05\Documents\workspace-spring-tools-for-eclipse-5.4.0.RELEASE\csv-job\target\classes started by caytm in C:\Users\caytm.CAYTM-05\Documents\workspace-spring-tools-for-eclipse-5.4.0.RELEASE\csv-job)
+2026-10-20T10:03:01.673+05:30  INFO 5700 --- [csv-job] [main] com.mercia.CsvJobApplication             : No active profile set, falling back to 1 default profile: "default"
+2026-10-20T10:03:02.095+05:30  INFO 5700 --- [csv-job] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-20T10:03:02.213+05:30  INFO 5700 --- [csv-job] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 111 ms. Found 2 JPA repository interfaces.
+2026-10-20T10:03:02.513+05:30  INFO 5700 --- [csv-job] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-20T10:03:02.562+05:30  INFO 5700 --- [csv-job] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-20T10:03:02.921+05:30  INFO 5700 --- [csv-job] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-20T10:03:02.948+05:30  INFO 5700 --- [csv-job] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-20T10:03:03.120+05:30  INFO 5700 --- [csv-job] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1b17d8ab
+2026-10-20T10:03:03.122+05:30  INFO 5700 --- [csv-job] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-20T10:03:03.204+05:30  INFO 5700 --- [csv-job] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/csv]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: csv/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-20T10:03:04.014+05:30  INFO 5700 --- [csv-job] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-20T10:03:04.067+05:30  INFO 5700 --- [csv-job] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-20T10:03:04.196+05:30  INFO 5700 --- [csv-job] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-20T10:03:04.414+05:30  INFO 5700 --- [csv-job] [main] com.mercia.CsvJobApplication             : Started CsvJobApplication in 3.086 seconds (process running for 3.535)
+2026-10-20T10:03:04.480+05:30  INFO 5700 --- [csv-job] [main] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=myJob]] launched with the following parameters: [{JobParameter{name='timeStamp', value=1792470784417, type=class java.lang.Long, identifying=true},JobParameter{name='input.file.path', value=/.csv, type=class java.lang.String, identifying=true}}]
+2026-10-20T10:03:04.540+05:30  INFO 5700 --- [csv-job] [main] o.s.batch.core.step.AbstractStep         : Executing step: [jobStep]
+2026-10-20T10:03:04.566+05:30 ERROR 5700 --- [csv-job] [main] o.s.batch.core.step.AbstractStep         : Encountered an error executing step jobStep in job myJob
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'scopedTarget.reader' defined in class path resource [com/mercia/config/BatchConfig.class]: Failed to instantiate [org.springframework.batch.infrastructure.item.file.FlatFileItemReader]: Factory method 'reader' threw exception with message: Not a valid file
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657) ~[spring-beans-7.0.9.jar:7.0.9]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:645) ~[spring-beans-7.0.9.jar:7.0.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1360) ~[spring-beans-7.0.9.jar:7.0.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1192) ~[spring-beans-7.0.9.jar:7.0.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565) ~[spring-beans-7.0.9.jar:7.0.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.9.jar:7.0.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$1(AbstractBeanFactory.java:372) ~[spring-beans-7.0.9.jar:7.0.9]
+	at org.springframework.batch.core.scope.JobScope.get(JobScope.java:107) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:369) ~[spring-beans-7.0.9.jar:7.0.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196) ~[spring-beans-7.0.9.jar:7.0.9]
+	at org.springframework.aop.target.SimpleBeanTargetSource.getTarget(SimpleBeanTargetSource.java:35) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:703) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.batch.infrastructure.item.file.FlatFileItemReader$$SpringCGLIB$$0.open(<generated>) ~[spring-batch-infrastructure-6.0.5.jar:6.0.5]
+	at org.springframework.batch.infrastructure.item.support.CompositeItemStream.open(CompositeItemStream.java:138) ~[spring-batch-infrastructure-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.step.item.ChunkOrientedStep.open(ChunkOrientedStep.java:357) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.step.AbstractStep.execute(AbstractStep.java:248) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.job.SimpleStepHandler.handleStep(SimpleStepHandler.java:128) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.job.AbstractJob.handleStep(AbstractJob.java:397) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.job.SimpleJob.doExecute(SimpleJob.java:129) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.job.AbstractJob.execute(AbstractJob.java:293) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher$1.run(TaskExecutorJobLauncher.java:220) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.core.task.SyncTaskExecutor.execute(SyncTaskExecutor.java:88) ~[spring-core-7.0.9.jar:7.0.9]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher.launchJobExecution(TaskExecutorJobLauncher.java:211) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher.run(TaskExecutorJobLauncher.java:109) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133) ~[spring-tx-7.0.9.jar:7.0.9]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371) ~[spring-tx-7.0.9.jar:7.0.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130) ~[spring-tx-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:222) ~[spring-aop-7.0.9.jar:7.0.9]
+	at jdk.proxy2/jdk.proxy2.$Proxy108.run(Unknown Source) ~[na:na]
+	at com.mercia.service.JobService.runJob(JobService.java:40) ~[classes/:na]
+	at com.mercia.CsvJobApplication.run(CsvJobApplication.java:31) ~[classes/:na]
+	at org.springframework.boot.SpringApplication.lambda$callRunner$1(SpringApplication.java:792) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:82) ~[spring-core-7.0.9.jar:7.0.9]
+	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60) ~[spring-core-7.0.9.jar:7.0.9]
+	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:86) ~[spring-core-7.0.9.jar:7.0.9]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:800) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:791) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.boot.SpringApplication.lambda$callRunners$0(SpringApplication.java:776) ~[spring-boot-4.1.1.jar:4.1.1]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186) ~[na:na]
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:571) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632) ~[na:na]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:776) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:328) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.1.1.jar:4.1.1]
+	at com.mercia.CsvJobApplication.main(CsvJobApplication.java:25) ~[classes/:na]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.batch.infrastructure.item.file.FlatFileItemReader]: Factory method 'reader' threw exception with message: Not a valid file
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:183) ~[spring-beans-7.0.9.jar:7.0.9]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:72) ~[spring-beans-7.0.9.jar:7.0.9]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:152) ~[spring-beans-7.0.9.jar:7.0.9]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-7.0.9.jar:7.0.9]
+	... 56 common frames omitted
+Caused by: java.lang.RuntimeException: Not a valid file
+	at com.mercia.config.BatchConfig.reader(BatchConfig.java:118) ~[classes/:na]
+	at com.mercia.config.BatchConfig$$SpringCGLIB$$0.CGLIB$reader$0(<generated>) ~[classes/:na]
+	at com.mercia.config.BatchConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258) ~[spring-core-7.0.9.jar:7.0.9]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:398) ~[spring-context-7.0.9.jar:7.0.9]
+	at com.mercia.config.BatchConfig$$SpringCGLIB$$0.reader(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:155) ~[spring-beans-7.0.9.jar:7.0.9]
+	... 59 common frames omitted
+
+2026-10-20T10:03:04.570+05:30  INFO 5700 --- [csv-job] [main] o.s.batch.core.step.AbstractStep         : Step: [jobStep] executed in 32ms
+2026-10-20T10:03:04.582+05:30 ERROR 5700 --- [csv-job] [main] o.s.batch.core.step.AbstractStep         : Exception while closing step execution resources in step jobStep in job myJob
+
+org.springframework.batch.infrastructure.item.ItemStreamException: Failed to close 1 delegate(s) due to exceptions
+	at org.springframework.batch.infrastructure.item.support.CompositeItemStream.close(CompositeItemStream.java:123) ~[spring-batch-infrastructure-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.step.item.ChunkOrientedStep.close(ChunkOrientedStep.java:364) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.step.AbstractStep.execute(AbstractStep.java:345) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.job.SimpleStepHandler.handleStep(SimpleStepHandler.java:128) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.job.AbstractJob.handleStep(AbstractJob.java:397) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.job.SimpleJob.doExecute(SimpleJob.java:129) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.job.AbstractJob.execute(AbstractJob.java:293) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher$1.run(TaskExecutorJobLauncher.java:220) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.core.task.SyncTaskExecutor.execute(SyncTaskExecutor.java:88) ~[spring-core-7.0.9.jar:7.0.9]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher.launchJobExecution(TaskExecutorJobLauncher.java:211) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher.run(TaskExecutorJobLauncher.java:109) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133) ~[spring-tx-7.0.9.jar:7.0.9]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371) ~[spring-tx-7.0.9.jar:7.0.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130) ~[spring-tx-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:222) ~[spring-aop-7.0.9.jar:7.0.9]
+	at jdk.proxy2/jdk.proxy2.$Proxy108.run(Unknown Source) ~[na:na]
+	at com.mercia.service.JobService.runJob(JobService.java:40) ~[classes/:na]
+	at com.mercia.CsvJobApplication.run(CsvJobApplication.java:31) ~[classes/:na]
+	at org.springframework.boot.SpringApplication.lambda$callRunner$1(SpringApplication.java:792) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:82) ~[spring-core-7.0.9.jar:7.0.9]
+	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60) ~[spring-core-7.0.9.jar:7.0.9]
+	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:86) ~[spring-core-7.0.9.jar:7.0.9]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:800) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:791) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.boot.SpringApplication.lambda$callRunners$0(SpringApplication.java:776) ~[spring-boot-4.1.1.jar:4.1.1]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186) ~[na:na]
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:571) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632) ~[na:na]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:776) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:328) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.1.1.jar:4.1.1]
+	at com.mercia.CsvJobApplication.main(CsvJobApplication.java:25) ~[classes/:na]
+	Suppressed: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'scopedTarget.reader' defined in class path resource [com/mercia/config/BatchConfig.class]: Failed to instantiate [org.springframework.batch.infrastructure.item.file.FlatFileItemReader]: Factory method 'reader' threw exception with message: Not a valid file
+		at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657) ~[spring-beans-7.0.9.jar:7.0.9]
+		at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:645) ~[spring-beans-7.0.9.jar:7.0.9]
+		at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1360) ~[spring-beans-7.0.9.jar:7.0.9]
+		at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1192) ~[spring-beans-7.0.9.jar:7.0.9]
+		at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565) ~[spring-beans-7.0.9.jar:7.0.9]
+		at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.9.jar:7.0.9]
+		at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$1(AbstractBeanFactory.java:372) ~[spring-beans-7.0.9.jar:7.0.9]
+		at org.springframework.batch.core.scope.JobScope.get(JobScope.java:107) ~[spring-batch-core-6.0.5.jar:6.0.5]
+		at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:369) ~[spring-beans-7.0.9.jar:7.0.9]
+		at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196) ~[spring-beans-7.0.9.jar:7.0.9]
+		at org.springframework.aop.target.SimpleBeanTargetSource.getTarget(SimpleBeanTargetSource.java:35) ~[spring-aop-7.0.9.jar:7.0.9]
+		at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:703) ~[spring-aop-7.0.9.jar:7.0.9]
+		at org.springframework.batch.infrastructure.item.file.FlatFileItemReader$$SpringCGLIB$$0.close(<generated>) ~[spring-batch-infrastructure-6.0.5.jar:6.0.5]
+		at org.springframework.batch.infrastructure.item.support.CompositeItemStream.close(CompositeItemStream.java:114) ~[spring-batch-infrastructure-6.0.5.jar:6.0.5]
+		... 43 common frames omitted
+	Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.batch.infrastructure.item.file.FlatFileItemReader]: Factory method 'reader' threw exception with message: Not a valid file
+		at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:183)
+		at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:72)
+		at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:152)
+		at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+		... 56 common frames omitted
+	Caused by: java.lang.RuntimeException: Not a valid file
+		at com.mercia.config.BatchConfig.reader(BatchConfig.java:118)
+		at com.mercia.config.BatchConfig$$SpringCGLIB$$0.CGLIB$reader$0(<generated>)
+		at com.mercia.config.BatchConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)
+		at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)
+		at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:398)
+		at com.mercia.config.BatchConfig$$SpringCGLIB$$0.reader(<generated>)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+		at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:155)
+		... 59 common frames omitted
+
+2026-10-20T10:03:04.593+05:30  INFO 5700 --- [csv-job] [main] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=myJob]] completed with the following parameters: [{JobParameter{name='timeStamp', value=1792470784417, type=class java.lang.Long, identifying=true},JobParameter{name='input.file.path', value=/.csv, type=class java.lang.String, identifying=true}}] and the following status: [FAILED] in 62ms
+2026-10-20T10:03:04.681+05:30  INFO 5700 --- [csv-job] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-20T10:03:04.683+05:30  INFO 5700 --- [csv-job] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-10-20T10:03:04.689+05:30  INFO 5700 --- [csv-job] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-10-20T10:03:37.243+05:30  INFO 26404 --- [csv-job] [main] com.mercia.CsvJobApplication             : Starting CsvJobApplication using Java 25.0.4.1 with PID 26404 (C:\Users\caytm.CAYTM-05\Documents\workspace-spring-tools-for-eclipse-5.4.0.RELEASE\csv-job\target\classes started by caytm in C:\Users\caytm.CAYTM-05\Documents\workspace-spring-tools-for-eclipse-5.4.0.RELEASE\csv-job)
+2026-10-20T10:03:37.247+05:30  INFO 26404 --- [csv-job] [main] com.mercia.CsvJobApplication             : No active profile set, falling back to 1 default profile: "default"
+2026-10-20T10:03:37.669+05:30  INFO 26404 --- [csv-job] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-20T10:03:37.786+05:30  INFO 26404 --- [csv-job] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 110 ms. Found 2 JPA repository interfaces.
+2026-10-20T10:03:38.089+05:30  INFO 26404 --- [csv-job] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-20T10:03:38.130+05:30  INFO 26404 --- [csv-job] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-10-20T10:03:38.484+05:30  INFO 26404 --- [csv-job] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-20T10:03:38.511+05:30  INFO 26404 --- [csv-job] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-20T10:03:38.682+05:30  INFO 26404 --- [csv-job] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2a8f8555
+2026-10-20T10:03:38.683+05:30  INFO 26404 --- [csv-job] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-20T10:03:38.770+05:30  INFO 26404 --- [csv-job] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/csv]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: csv/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-20T10:03:39.520+05:30  INFO 26404 --- [csv-job] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-20T10:03:39.584+05:30  INFO 26404 --- [csv-job] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-20T10:03:39.709+05:30  INFO 26404 --- [csv-job] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-20T10:03:39.927+05:30  INFO 26404 --- [csv-job] [main] com.mercia.CsvJobApplication             : Started CsvJobApplication in 3.021 seconds (process running for 3.434)
+2026-10-20T10:03:39.991+05:30  INFO 26404 --- [csv-job] [main] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=myJob]] launched with the following parameters: [{JobParameter{name='timeStamp', value=1792470819930, type=class java.lang.Long, identifying=true},JobParameter{name='input.file.path', value=/.csv, type=class java.lang.String, identifying=true}}]
+2026-10-20T10:03:40.052+05:30  INFO 26404 --- [csv-job] [main] o.s.batch.core.step.AbstractStep         : Executing step: [jobStep]
+2026-10-20T10:03:40.081+05:30 ERROR 26404 --- [csv-job] [main] o.s.batch.core.step.AbstractStep         : Encountered an error executing step jobStep in job myJob
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'scopedTarget.reader' defined in class path resource [com/mercia/config/BatchConfig.class]: Failed to instantiate [org.springframework.batch.infrastructure.item.file.FlatFileItemReader]: Factory method 'reader' threw exception with message: Not a valid file
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657) ~[spring-beans-7.0.9.jar:7.0.9]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:645) ~[spring-beans-7.0.9.jar:7.0.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1360) ~[spring-beans-7.0.9.jar:7.0.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1192) ~[spring-beans-7.0.9.jar:7.0.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565) ~[spring-beans-7.0.9.jar:7.0.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.9.jar:7.0.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$1(AbstractBeanFactory.java:372) ~[spring-beans-7.0.9.jar:7.0.9]
+	at org.springframework.batch.core.scope.JobScope.get(JobScope.java:107) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:369) ~[spring-beans-7.0.9.jar:7.0.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196) ~[spring-beans-7.0.9.jar:7.0.9]
+	at org.springframework.aop.target.SimpleBeanTargetSource.getTarget(SimpleBeanTargetSource.java:35) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:703) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.batch.infrastructure.item.file.FlatFileItemReader$$SpringCGLIB$$0.open(<generated>) ~[spring-batch-infrastructure-6.0.5.jar:6.0.5]
+	at org.springframework.batch.infrastructure.item.support.CompositeItemStream.open(CompositeItemStream.java:138) ~[spring-batch-infrastructure-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.step.item.ChunkOrientedStep.open(ChunkOrientedStep.java:357) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.step.AbstractStep.execute(AbstractStep.java:248) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.job.SimpleStepHandler.handleStep(SimpleStepHandler.java:128) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.job.AbstractJob.handleStep(AbstractJob.java:397) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.job.SimpleJob.doExecute(SimpleJob.java:129) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.job.AbstractJob.execute(AbstractJob.java:293) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher$1.run(TaskExecutorJobLauncher.java:220) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.core.task.SyncTaskExecutor.execute(SyncTaskExecutor.java:88) ~[spring-core-7.0.9.jar:7.0.9]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher.launchJobExecution(TaskExecutorJobLauncher.java:211) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher.run(TaskExecutorJobLauncher.java:109) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133) ~[spring-tx-7.0.9.jar:7.0.9]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371) ~[spring-tx-7.0.9.jar:7.0.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130) ~[spring-tx-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:222) ~[spring-aop-7.0.9.jar:7.0.9]
+	at jdk.proxy2/jdk.proxy2.$Proxy108.run(Unknown Source) ~[na:na]
+	at com.mercia.service.JobService.runJob(JobService.java:40) ~[classes/:na]
+	at com.mercia.CsvJobApplication.run(CsvJobApplication.java:31) ~[classes/:na]
+	at org.springframework.boot.SpringApplication.lambda$callRunner$1(SpringApplication.java:792) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:82) ~[spring-core-7.0.9.jar:7.0.9]
+	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60) ~[spring-core-7.0.9.jar:7.0.9]
+	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:86) ~[spring-core-7.0.9.jar:7.0.9]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:800) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:791) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.boot.SpringApplication.lambda$callRunners$0(SpringApplication.java:776) ~[spring-boot-4.1.1.jar:4.1.1]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186) ~[na:na]
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:571) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632) ~[na:na]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:776) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:328) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.1.1.jar:4.1.1]
+	at com.mercia.CsvJobApplication.main(CsvJobApplication.java:25) ~[classes/:na]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.batch.infrastructure.item.file.FlatFileItemReader]: Factory method 'reader' threw exception with message: Not a valid file
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:183) ~[spring-beans-7.0.9.jar:7.0.9]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:72) ~[spring-beans-7.0.9.jar:7.0.9]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:152) ~[spring-beans-7.0.9.jar:7.0.9]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-7.0.9.jar:7.0.9]
+	... 56 common frames omitted
+Caused by: java.lang.RuntimeException: Not a valid file
+	at com.mercia.config.BatchConfig.reader(BatchConfig.java:118) ~[classes/:na]
+	at com.mercia.config.BatchConfig$$SpringCGLIB$$0.CGLIB$reader$0(<generated>) ~[classes/:na]
+	at com.mercia.config.BatchConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258) ~[spring-core-7.0.9.jar:7.0.9]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:398) ~[spring-context-7.0.9.jar:7.0.9]
+	at com.mercia.config.BatchConfig$$SpringCGLIB$$0.reader(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:155) ~[spring-beans-7.0.9.jar:7.0.9]
+	... 59 common frames omitted
+
+2026-10-20T10:03:40.085+05:30  INFO 26404 --- [csv-job] [main] o.s.batch.core.step.AbstractStep         : Step: [jobStep] executed in 34ms
+2026-10-20T10:03:40.095+05:30 ERROR 26404 --- [csv-job] [main] o.s.batch.core.step.AbstractStep         : Exception while closing step execution resources in step jobStep in job myJob
+
+org.springframework.batch.infrastructure.item.ItemStreamException: Failed to close 1 delegate(s) due to exceptions
+	at org.springframework.batch.infrastructure.item.support.CompositeItemStream.close(CompositeItemStream.java:123) ~[spring-batch-infrastructure-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.step.item.ChunkOrientedStep.close(ChunkOrientedStep.java:364) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.step.AbstractStep.execute(AbstractStep.java:345) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.job.SimpleStepHandler.handleStep(SimpleStepHandler.java:128) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.job.AbstractJob.handleStep(AbstractJob.java:397) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.job.SimpleJob.doExecute(SimpleJob.java:129) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.job.AbstractJob.execute(AbstractJob.java:293) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher$1.run(TaskExecutorJobLauncher.java:220) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.core.task.SyncTaskExecutor.execute(SyncTaskExecutor.java:88) ~[spring-core-7.0.9.jar:7.0.9]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher.launchJobExecution(TaskExecutorJobLauncher.java:211) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher.run(TaskExecutorJobLauncher.java:109) ~[spring-batch-core-6.0.5.jar:6.0.5]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133) ~[spring-tx-7.0.9.jar:7.0.9]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371) ~[spring-tx-7.0.9.jar:7.0.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130) ~[spring-tx-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.9.jar:7.0.9]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:222) ~[spring-aop-7.0.9.jar:7.0.9]
+	at jdk.proxy2/jdk.proxy2.$Proxy108.run(Unknown Source) ~[na:na]
+	at com.mercia.service.JobService.runJob(JobService.java:40) ~[classes/:na]
+	at com.mercia.CsvJobApplication.run(CsvJobApplication.java:31) ~[classes/:na]
+	at org.springframework.boot.SpringApplication.lambda$callRunner$1(SpringApplication.java:792) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:82) ~[spring-core-7.0.9.jar:7.0.9]
+	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60) ~[spring-core-7.0.9.jar:7.0.9]
+	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:86) ~[spring-core-7.0.9.jar:7.0.9]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:800) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:791) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.boot.SpringApplication.lambda$callRunners$0(SpringApplication.java:776) ~[spring-boot-4.1.1.jar:4.1.1]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186) ~[na:na]
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:571) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632) ~[na:na]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:776) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:328) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.1.1.jar:4.1.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.1.1.jar:4.1.1]
+	at com.mercia.CsvJobApplication.main(CsvJobApplication.java:25) ~[classes/:na]
+	Suppressed: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'scopedTarget.reader' defined in class path resource [com/mercia/config/BatchConfig.class]: Failed to instantiate [org.springframework.batch.infrastructure.item.file.FlatFileItemReader]: Factory method 'reader' threw exception with message: Not a valid file
+		at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657) ~[spring-beans-7.0.9.jar:7.0.9]
+		at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:645) ~[spring-beans-7.0.9.jar:7.0.9]
+		at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1360) ~[spring-beans-7.0.9.jar:7.0.9]
+		at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1192) ~[spring-beans-7.0.9.jar:7.0.9]
+		at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565) ~[spring-beans-7.0.9.jar:7.0.9]
+		at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.9.jar:7.0.9]
+		at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$1(AbstractBeanFactory.java:372) ~[spring-beans-7.0.9.jar:7.0.9]
+		at org.springframework.batch.core.scope.JobScope.get(JobScope.java:107) ~[spring-batch-core-6.0.5.jar:6.0.5]
+		at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:369) ~[spring-beans-7.0.9.jar:7.0.9]
+		at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196) ~[spring-beans-7.0.9.jar:7.0.9]
+		at org.springframework.aop.target.SimpleBeanTargetSource.getTarget(SimpleBeanTargetSource.java:35) ~[spring-aop-7.0.9.jar:7.0.9]
+		at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:703) ~[spring-aop-7.0.9.jar:7.0.9]
+		at org.springframework.batch.infrastructure.item.file.FlatFileItemReader$$SpringCGLIB$$0.close(<generated>) ~[spring-batch-infrastructure-6.0.5.jar:6.0.5]
+		at org.springframework.batch.infrastructure.item.support.CompositeItemStream.close(CompositeItemStream.java:114) ~[spring-batch-infrastructure-6.0.5.jar:6.0.5]
+		... 43 common frames omitted
+	Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.batch.infrastructure.item.file.FlatFileItemReader]: Factory method 'reader' threw exception with message: Not a valid file
+		at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:183)
+		at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:72)
+		at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:152)
+		at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+		... 56 common frames omitted
+	Caused by: java.lang.RuntimeException: Not a valid file
+		at com.mercia.config.BatchConfig.reader(BatchConfig.java:118)
+		at com.mercia.config.BatchConfig$$SpringCGLIB$$0.CGLIB$reader$0(<generated>)
+		at com.mercia.config.BatchConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)
+		at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)
+		at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:398)
+		at com.mercia.config.BatchConfig$$SpringCGLIB$$0.reader(<generated>)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+		at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:155)
+		... 59 common frames omitted
+
+2026-10-20T10:03:40.116+05:30  INFO 26404 --- [csv-job] [main] o.s.b.c.l.s.TaskExecutorJobLauncher      : Job: [SimpleJob: [name=myJob]] completed with the following parameters: [{JobParameter{name='timeStamp', value=1792470819930, type=class java.lang.Long, identifying=true},JobParameter{name='input.file.path', value=/.csv, type=class java.lang.String, identifying=true}}] and the following status: [FAILED] in 66ms
+2026-10-20T10:03:40.218+05:30  INFO 26404 --- [csv-job] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-20T10:03:40.221+05:30  INFO 26404 --- [csv-job] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-10-20T10:03:40.225+05:30  INFO 26404 --- [csv-job] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

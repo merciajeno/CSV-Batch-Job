@@ -12,6 +12,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 import org.springframework.core.io.ClassPathResource;
+import com.mercia.step.FileValidationService;
 
 class FileValidationServiceTest {
 
@@ -124,7 +125,8 @@ class FileValidationServiceTest {
     void shouldRejectIfFileOverLimit() throws IOException
     {
     	Path file = tempDir.resolve("fileOverLimit.csv");
-  
+    	Files.writeString(file,
+                "transaction_id,account_number,transaction_date,amount,currency,transaction_type,description\n");
 
         ClassPathResource resource = new ClassPathResource("fileOverLimit.csv") {
             @Override

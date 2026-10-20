@@ -1,19 +1,29 @@
 package com.mercia;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+
+import java.io.IOException;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
+import org.springframework.batch.core.job.parameters.InvalidJobParametersException;
+import org.springframework.batch.core.launch.JobExecutionAlreadyRunningException;
+import org.springframework.batch.core.launch.JobInstanceAlreadyCompleteException;
+import org.springframework.batch.core.launch.JobRestartException;
+import org.springframework.batch.core.launch.NoSuchJobInstanceException;
 
 import com.mercia.listener.CustomSkipListener;
 import com.mercia.model.Summary;
 import com.mercia.model.SummaryDto;
 import com.mercia.repository.SummaryRepository;
 import com.mercia.service.JobService;
+
 
 class CsvJobApplicationTests {
 
@@ -41,7 +51,6 @@ class CsvJobApplicationTests {
     @Test
     void shouldRunJobsAndSaveSummary() throws Exception {
 
-        // Arrange: prepare summary values
         when(summaryDto.getTotalRecords()).thenReturn(10L);
         when(summaryDto.getTotalInvalidRecords()).thenReturn(1L);
         when(summaryDto.getDuplicateRecords()).thenReturn(2L);
@@ -52,11 +61,11 @@ class CsvJobApplicationTests {
         when(jobService.previousJobSuccess("csvJob")).thenReturn(true);
         application.run();
 
-        // Assert: verify both jobs were invoked
+       
         verify(jobService).runJob();
         verify(jobService).runCsvJob();
 
-        // Verify the summary was saved
+      
         ArgumentCaptor<Summary> captor =
                 ArgumentCaptor.forClass(Summary.class);
 
@@ -70,5 +79,31 @@ class CsvJobApplicationTests {
         assertEquals(3L, savedSummary.getTotalMatchedRecords());
         assertEquals(2L, savedSummary.getTotalMisMatchedRecords());
         assertEquals(2L, savedSummary.getTotalMissingRecords());
+    }
+    
+    @Test
+    void shouldFailIfFirstJobFailed() throws NoSuchJobInstanceException, JobExecutionAlreadyRunningException, JobRestartException, JobInstanceAlreadyCompleteException, InvalidJobParametersException
+    {
+    	when(jobService.previousJobSuccess("myJob")).thenReturn(false);
+    	when(jobService.previousJobSuccess("csvJob")).thenReturn(false);
+    	verify(jobService,never()).runCsvJob();
+    }
+    
+    @Test
+    void noAuditWhenNoJobsRan() throws NoSuchJobInstanceException, IOException 
+    {
+    	when(jobService.previousJobSuccess("myJob")).thenReturn(false);
+    	when(jobService.previousJobSuccess("csvJob")).thenReturn(false);
+    	
+    	verify(customSkipListener,never()).writeSkippedRecords();
+    }
+    
+    @Test
+    void noSummaryWhenNoJobsRan() throws NoSuchJobInstanceException
+    {
+    	when(jobService.previousJobSuccess("myJob")).thenReturn(false);
+    	when(jobService.previousJobSuccess("csvJob")).thenReturn(false);
+    	
+    	verify(summaryRepository,never()).save(any(Summary.class));
     }
 }

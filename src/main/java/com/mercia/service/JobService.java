@@ -33,7 +33,7 @@ public class JobService {
 	public void runJob() throws JobExecutionAlreadyRunningException, JobRestartException, JobInstanceAlreadyCompleteException, InvalidJobParametersException
 	{
 		JobParameters jobParameters = new JobParametersBuilder().
-				addString("input.file.path", "/input_transactions.csv")
+				addString("input.file.path", "/.csv")
 				.addLong("timeStamp",System.currentTimeMillis())
 				.toJobParameters();
 		
